@@ -1,3 +1,3 @@
 from colorama import Fore
 
-print("wazzap")
+print(Fore.RED, "wazzap")
