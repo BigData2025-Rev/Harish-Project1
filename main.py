@@ -11,8 +11,8 @@ while(True):
         continue
     else: break
 
-if(action == "login"): authentication.login()
-elif(action == "register"): authentication.register()
+if(action == "login"): username = authentication.login()
+elif(action == "register"): username = authentication.register()
 
 
 

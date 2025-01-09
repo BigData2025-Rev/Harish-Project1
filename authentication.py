@@ -1,5 +1,7 @@
 def login():
-    print("hi")
+    username = input("To login, please enter your username: ")
+
 
 def register():
-    print("hi")
+    username = input("To register, please enter your username: ")
+    
