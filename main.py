@@ -18,7 +18,7 @@ while(True):
 if(action == "login"):
     result = authentication.login()
     while(result == None): 
-        print(Fore.RED, "Invalid credentials.", Fore.RESET)
+        print(Fore.RED, "Invalid credentials. Please try again.", Fore.RESET)
         result = authentication.login()
     current_user = userent.User(result['name'], result['password'], result['admin'])
 elif(action == "register"):
