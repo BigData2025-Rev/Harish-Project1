@@ -25,7 +25,4 @@ elif(action == "register"):
     username, password, admin = authentication.register()
     current_user = userent.User(username, password, admin)
 
-print("The user's name is " + current_user.name + " and their password is " + current_user.password + " and admin " + str(current_user.admin))
-
-
-
+print("\n--------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n--------------------------------------", sep="")
