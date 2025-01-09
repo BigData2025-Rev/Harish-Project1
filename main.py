@@ -6,6 +6,7 @@ import entities.part as partent
 import services.authenticationhandler as authenticationserv
 import services.partshandler as partsserv
 import services.deletehandler as deleterserv
+import services.ordershandler as ordersserv
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
@@ -62,6 +63,7 @@ while(True):
             print("\nYour total price is: " + str(total_price))
     elif(action == "orders"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
+
     elif(action == "admin"):
         print("admin")
     elif(action == "exit"):
