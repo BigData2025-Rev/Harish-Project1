@@ -1,8 +1,10 @@
 from pymongo import MongoClient
-import json
 
-def main():
-    client = MongoClient("mongodb://localhost:27017/")
-
-    db = client.get_database("test")
-
+def connect():
+    try:
+        client = MongoClient("mongodb://localhost:27017/")
+    except ConnectionError: 
+        print("Error: unable to connect to MongoDB database.")
+    else:
+        db = client.get_database("computershop")
+        return db
