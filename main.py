@@ -3,8 +3,9 @@ from colorama import Fore
 import entities.order as orderent
 import entities.user as userent
 import entities.part as partent
-import services.authentication as authenticationserv
+import services.authenticationhandler as authenticationserv
 import services.partshandler as partsserv
+import services.deletehandler as deleterserv
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
@@ -52,5 +53,9 @@ while(True):
             print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
             total_price += part['price']
         print("\nYour total price is: " + str(total_price))
+    elif(action == "orders"):
+        print("orders")
+    elif(action == "admin"):
+        print("admin")
     elif(action == "exit"):
         sys.exit()
