@@ -14,9 +14,10 @@ cart = []
 
 while(True):
     action = input("What would you like to do? ")
-    if(action != "login" and action != "register"):
+    if(action != "login" and action != "register" and action != "exit"):
         print(Fore.RED, "Invalid option entered. Please try again.", Fore.RESET)
         continue
+    elif(action == "exit"): sys.exit()
     else: break
 
 if(action == "login"):
@@ -34,8 +35,9 @@ print("\n----------------------------------------\nWelcome to the computer store
 while(True):
     print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
       Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your cart.\n-" +
+      Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
-      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n" +
+      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
       Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
     action = input("What would you like to do? ")
     if(action == "add"): 
