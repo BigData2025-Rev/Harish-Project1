@@ -3,10 +3,12 @@ import entities.order as orderent
 import entities.user as userent
 import entities.part as partent
 import services.authentication as authenticationserv
+import services.partshandler as partsserv
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
 authentication = authenticationserv.Authentication()
+partshandler = partsserv.PartsHandler()
 
 while(True):
     action = input("What would you like to do? ")
@@ -33,3 +35,5 @@ print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part
       Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.")
 
 action = input("What would you like to do? ")
+
+if(action == "add"): 
