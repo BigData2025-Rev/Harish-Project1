@@ -28,4 +28,4 @@ class PartsHandler:
             print(Fore.RED,"Invalid model specified. Please try again." + Fore.RESET,"")
             model = input("Which model would you like to purchase? ")
             result = self.__dao.get_model(model)
-        print("brand: " + result['brand'])
+        print(Fore.GREEN,"Part added to cart!" + Fore.RESET,"")

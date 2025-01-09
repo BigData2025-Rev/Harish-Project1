@@ -28,8 +28,8 @@ elif(action == "register"):
     current_user = userent.User(username, password, admin)
 
 print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
-print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your order.\n-" +
-      Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your order.\n-" +
+print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
+      Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your cart.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
       Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n")
 
