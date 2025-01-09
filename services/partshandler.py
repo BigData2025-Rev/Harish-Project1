@@ -29,3 +29,4 @@ class PartsHandler:
             model = input("Which model would you like to purchase? ")
             result = self.__dao.get_model(model)
         print(Fore.GREEN,"Part added to cart!" + Fore.RESET,"")
+        return result

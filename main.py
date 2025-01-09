@@ -1,3 +1,4 @@
+import sys
 from colorama import Fore
 import entities.order as orderent
 import entities.user as userent
@@ -9,6 +10,7 @@ print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," 
 
 authentication = authenticationserv.Authentication()
 partshandler = partsserv.PartsHandler()
+cart = []
 
 while(True):
     action = input("What would you like to do? ")
@@ -28,11 +30,16 @@ elif(action == "register"):
     current_user = userent.User(username, password, admin)
 
 print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
-print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
+
+while(True):
+    print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
       Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your cart.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
-      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n")
-
-action = input("What would you like to do? ")
-
-if(action == "add"): partshandler.add()
+      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n" +
+      Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
+    action = input("What would you like to do? ")
+    if(action == "add"): 
+        part = partshandler.add()
+        cart.append(part)
+    if(action == "exit"):
+        sys.exit()
