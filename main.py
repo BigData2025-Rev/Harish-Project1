@@ -1,4 +1,7 @@
 from colorama import Fore
+import entities.user as User
+import entities.order as Order
+import entities.part as Part
 import services.authentication as authentication
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep='')
@@ -10,8 +13,8 @@ while(True):
         continue
     else: break
 
-if(action == "login"): username = authentication.login()
-elif(action == "register"): username = authentication.register()
+if(action == "login"): user = authentication.login()
+elif(action == "register"): user = authentication.register()
 
 
 
