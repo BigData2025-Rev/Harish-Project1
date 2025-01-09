@@ -40,6 +40,7 @@ while(True):
     print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
       Fore.CYAN,"delete" + Fore.RESET,"to remove an item from your cart.\n-" +
       Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
+      Fore.CYAN,"checkout" + Fore.RESET,"to finalize and checkout your order.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
       Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
       Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
