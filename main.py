@@ -54,11 +54,14 @@ while(True):
         total_price -= part['price']
     elif(action == "cart"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
-        for part in cart:
-            print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-        print("\nYour total price is: " + str(total_price))
+        if(len(cart) == 0):
+            print(Fore.RED,"Cart is currently empty." + Fore.RESET,"")
+        else:
+            for part in cart:
+                print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+            print("\nYour total price is: " + str(total_price))
     elif(action == "orders"):
-        print("orders")
+        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
     elif(action == "admin"):
         print("admin")
     elif(action == "exit"):
