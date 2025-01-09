@@ -43,5 +43,11 @@ while(True):
     if(action == "add"): 
         part = partshandler.add()
         cart.append(part)
-    if(action == "exit"):
+    elif(action == "delete"):
+        print("delete")
+    elif(action == "cart"):
+        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
+        for part in cart:
+            print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+    elif(action == "exit"):
         sys.exit()
