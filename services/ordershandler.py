@@ -11,9 +11,10 @@ class OrdersHandler:
         return dao
     
     def history(self, name):
-        result = self.__dao.get_order_history(name)
+        cursor = self.__dao.get_order_history(name)
+        result = list(cursor)
         if(len(result) == 0):
             print(Fore.RED,"No orders found.")
         else:
             for order in result:
-                print("Order: " + order["ObjectId"] + " | Specs: " + order["specs"] + " | Price: " + str(order['price']))
+                print("Order: " + str(order["_id"]) + " | Specs: " + order["specs"] + " | Price: " + str(order['price']))
