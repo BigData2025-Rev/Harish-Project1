@@ -15,3 +15,6 @@ def get_parts(type):
 
 def get_model(model):
     return db.parts.find_one({"model": model})
+
+def get_order_history(name):
+    return db.orders.find({"user" : name})

@@ -12,6 +12,7 @@ print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," 
 
 authentication = authenticationserv.Authentication()
 partshandler = partsserv.PartsHandler()
+ordershandler = ordersserv.OrdersHandler()
 cart = []
 total_price = 0
 
@@ -43,16 +44,19 @@ while(True):
       Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
       Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
     action = input("What would you like to do? ")
+
     if(action == "add"): 
         part = partshandler.add()
         cart.append(part)
         total_price += part['price']
+
     elif(action == "delete"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         for part in cart:
             print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
         cart = deleterserv.delete(cart)
         total_price -= part['price']
+
     elif(action == "cart"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         if(len(cart) == 0):
@@ -61,10 +65,13 @@ while(True):
             for part in cart:
                 print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
             print("\nYour total price is: " + str(total_price))
+
     elif(action == "orders"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
+        ordershandler.history(current_user.name)
 
     elif(action == "admin"):
         print("admin")
+        
     elif(action == "exit"):
         sys.exit()
