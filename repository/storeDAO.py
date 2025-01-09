@@ -8,3 +8,7 @@ def login(username, password):
 
 def register(username, password, admin):
     print(Fore.GREEN,"Registration successful!" + Fore.RESET,"")
+    #TODO make this actually save and persist the created user
+
+def get_parts():
+    return 

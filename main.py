@@ -18,11 +18,10 @@ while(True):
     else: break
 
 if(action == "login"):
-    result = authentication.login()
-    while(result == None): 
+    current_user = authentication.login()
+    while(current_user == None): 
         print(Fore.RED, "Invalid credentials. Please try again.", Fore.RESET)
-        result = authentication.login()
-    current_user = userent.User(result['name'], result['password'], result['admin'])
+        current_user = authentication.login()
     print(Fore.GREEN,"Credentials authenticated. Login successful!" + Fore.RESET,"")
 elif(action == "register"):
     username, password, admin = authentication.register()
@@ -36,4 +35,4 @@ print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part
 
 action = input("What would you like to do? ")
 
-if(action == "add"): 
+if(action == "add"): partshandler.add()

@@ -1,5 +1,6 @@
 from colorama import Fore
 import repository.storeDAO as dao
+import entities.user as userent
 
 class Authentication:
 
@@ -13,7 +14,10 @@ class Authentication:
     def login(self):
         username = input("To login, please enter your username: ")
         password = input("Enter password: ")
-        return self.__dao.login(username, password)
+        result = self.__dao.login(username, password)
+        if(result == None): return None
+        else: return userent.User(result['name'], result['password'], result['admin'])
+
 
 
     def register(self):
