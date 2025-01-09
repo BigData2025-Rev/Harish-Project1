@@ -1,4 +1,4 @@
-import mongo
+import repository.mongo as mongo
 
 db = mongo.connect()
 
