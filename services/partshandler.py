@@ -19,5 +19,13 @@ class PartsHandler:
         if(type == "cpu"): result = self.__dao.get_parts("CPU")
         elif(type == "gpu"): result = self.__dao.get_parts("GPU")
         elif(type == "motherboard"): result = self.__dao.get_parts("Motherboard")
+        print("\n")
         for document in result:
             print("Brand: " + document['brand'] + " | " + "Model:" + Fore.CYAN,document['model'] + Fore.RESET,"| " + "Type: " + document['type'] + " | " + "Price: " + str(document['price']))
+        model = input("\nWhich model would you like to purchase? ")
+        result = self.__dao.get_model(model)
+        while(result == None):
+            print(Fore.RED,"Invalid model specified. Please try again." + Fore.RESET,"")
+            model = input("Which model would you like to purchase? ")
+            result = self.__dao.get_model(model)
+        print("brand: " + result['brand'])

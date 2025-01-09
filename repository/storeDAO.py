@@ -12,3 +12,6 @@ def register(username, password, admin):
 
 def get_parts(type):
     return db.parts.find({"type": type})
+
+def get_model(model):
+    return db.parts.find_one({"model": model})
