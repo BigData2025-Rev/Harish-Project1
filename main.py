@@ -33,7 +33,7 @@ elif(action == "register"):
 print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
 
 while(True):
-    print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
+    print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
       Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your cart.\n-" +
       Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
