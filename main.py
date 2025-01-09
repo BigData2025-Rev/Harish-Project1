@@ -36,7 +36,7 @@ print("\n----------------------------------------\nWelcome to the computer store
 
 while(True):
     print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
-      Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your cart.\n-" +
+      Fore.CYAN,"delete" + Fore.RESET,"to remove an item from your cart.\n-" +
       Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
       Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
@@ -46,7 +46,11 @@ while(True):
         part = partshandler.add()
         cart.append(part)
     elif(action == "delete"):
-        print("delete")
+        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
+        for part in cart:
+            print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+            total_price += part['price']
+        cart = deleterserv.delete(cart)
     elif(action == "cart"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         for part in cart:
