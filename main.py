@@ -1,5 +1,5 @@
 from colorama import Fore
-import authentication
+import services.authentication as authentication
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep='')
 
@@ -10,8 +10,8 @@ while(True):
         continue
     else: break
 
-if(action == "login"): username = Authentication.login()
-elif(action == "register"): username = Authentication.register()
+if(action == "login"): username = authentication.login()
+elif(action == "register"): username = authentication.register()
 
 
 
