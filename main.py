@@ -11,6 +11,7 @@ print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," 
 authentication = authenticationserv.Authentication()
 partshandler = partsserv.PartsHandler()
 cart = []
+total_price = 0
 
 while(True):
     action = input("What would you like to do? ")
@@ -49,5 +50,7 @@ while(True):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         for part in cart:
             print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+            total_price += part['price']
+        print("\nYour total price is: " + str(total_price))
     elif(action == "exit"):
         sys.exit()
