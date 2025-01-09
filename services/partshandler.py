@@ -20,8 +20,8 @@ class PartsHandler:
         elif(type == "gpu"): result = self.__dao.get_parts("GPU")
         elif(type == "motherboard"): result = self.__dao.get_parts("Motherboard")
         print("\n")
-        for document in result:
-            print("Brand: " + document['brand'] + " | " + "Model:" + Fore.CYAN,document['model'] + Fore.RESET,"| " + "Type: " + document['type'] + " | " + "Price: " + str(document['price']))
+        for part in result:
+            print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
         model = input("\nWhich model would you like to purchase? ")
         result = self.__dao.get_model(model)
         while(result == None):
