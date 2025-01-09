@@ -45,17 +45,17 @@ while(True):
     if(action == "add"): 
         part = partshandler.add()
         cart.append(part)
+        total_price += part['price']
     elif(action == "delete"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         for part in cart:
             print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-            total_price += part['price']
         cart = deleterserv.delete(cart)
+        total_price -= part['price']
     elif(action == "cart"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
         for part in cart:
             print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-            total_price += part['price']
         print("\nYour total price is: " + str(total_price))
     elif(action == "orders"):
         print("orders")
