@@ -4,7 +4,7 @@ import entities.user as userent
 import entities.part as partent
 import services.authentication as authenticationserv
 
-print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep='')
+print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
 authentication = authenticationserv.Authentication()
 
