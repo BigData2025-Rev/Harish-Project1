@@ -10,5 +10,5 @@ def register(username, password, admin):
     print(Fore.GREEN,"Registration successful!" + Fore.RESET,"")
     #TODO make this actually save and persist the created user
 
-def get_parts():
-    return 
+def get_parts(type):
+    return db.parts.find({"type": type})

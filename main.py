@@ -31,7 +31,7 @@ print("\n----------------------------------------\nWelcome to the computer store
 print("Here are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your order.\n-" +
       Fore.CYAN,"delete" + Fore.RESET,"to delete an item from your order.\n-" +
       Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
-      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.")
+      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n")
 
 action = input("What would you like to do? ")
 

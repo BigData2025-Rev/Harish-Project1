@@ -16,4 +16,8 @@ class PartsHandler:
         while(type != "cpu" and type != "gpu" and type != "motherboard"):
             print(Fore.RED,"Invalid part type specified. Please try again." + Fore.RESET,"")
             type = input("What type of part would you like to search for? ")
-        
+        if(type == "cpu"): result = self.__dao.get_parts("CPU")
+        elif(type == "gpu"): result = self.__dao.get_parts("GPU")
+        elif(type == "motherboard"): result = self.__dao.get_parts("Motherboard")
+        for document in result:
+            print("Brand: " + document['brand'] + " | " + "Model:" + Fore.CYAN,document['model'] + Fore.RESET,"| " + "Type: " + document['type'] + " | " + "Price: " + str(document['price']))
