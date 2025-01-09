@@ -21,8 +21,9 @@ if(action == "login"):
         print(Fore.RED, "Invalid credentials. Please try again.", Fore.RESET)
         result = authentication.login()
     current_user = userent.User(result['name'], result['password'], result['admin'])
+    print(Fore.GREEN,"Credentials authenticated. Login successful!" + Fore.RESET,"")
 elif(action == "register"):
     username, password, admin = authentication.register()
     current_user = userent.User(username, password, admin)
 
-print("\n--------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n--------------------------------------", sep="")
+print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------", sep="")
