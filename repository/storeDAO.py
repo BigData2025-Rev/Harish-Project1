@@ -7,4 +7,4 @@ def login(username, password):
     return db.users.find_one({"$and":[{"name": username}, {"password":password}]})
 
 def register(username, password, admin):
-    print("added!")
+    print(Fore.GREEN,"Registration successful!" + Fore.RESET,"")

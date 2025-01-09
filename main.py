@@ -22,7 +22,8 @@ if(action == "login"):
         result = authentication.login()
     current_user = userent.User(result['name'], result['password'], result['admin'])
 elif(action == "register"):
-    authentication.register()
+    username, password, admin = authentication.register()
+    current_user = userent.User(username, password, admin)
 
 print("The user's name is " + current_user.name + " and their password is " + current_user.password + " and admin " + str(current_user.admin))
 
