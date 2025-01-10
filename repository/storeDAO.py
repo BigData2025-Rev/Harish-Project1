@@ -24,3 +24,4 @@ def add_order(cart, name, price):
     for part in cart:
         specs.append(part['model'])
     print(', '.join(specs))
+    db.orders.insert_one({"user": name, "specs": ', '.join(specs), "price": price})
