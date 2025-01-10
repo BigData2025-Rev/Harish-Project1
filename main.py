@@ -106,7 +106,7 @@ def main():
                         adminhandler.modify()
 
                     elif(action == "remove"):
-                        print("remove")
+                        adminhandler.remove()
 
                     elif(action == "close"):
                         break

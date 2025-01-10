@@ -34,3 +34,10 @@ class AdminHandler:
             except ValueError:
                 print(Fore.RED,"You must enter a number." + Fore.RESET,"")
                 continue
+
+    def remove(self):
+        print("All currently active users:\n")
+        result = self.__dao.get_users()
+        for user in result:
+            print("User: " + Fore.MAGENTA,user['name'] + Fore.RESET,"")
+        username = input("Which user would you like to delete? ")
