@@ -23,7 +23,9 @@ while(True):
     if(action != "login" and action != "register" and action != "exit"):
         print(Fore.RED, "Invalid option entered. Please try again.", Fore.RESET)
         continue
-    elif(action == "exit"): sys.exit()
+    elif(action == "exit"): 
+        print(Fore.GREEN,"Goodbye!" + Fore.RESET,"")
+        sys.exit()
     else: break
 
 if(action == "login"):
@@ -86,4 +88,5 @@ while(True):
         print("admin")
         
     elif(action == "exit"):
+        print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")
         sys.exit()
