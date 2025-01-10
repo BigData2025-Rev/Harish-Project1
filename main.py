@@ -67,6 +67,10 @@ while(True):
                 print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
             print("\nYour total price is: " + str(total_price))
 
+    elif(action == "checkout"):
+        if(len(cart) == 0):
+            print(Fore.RED,"You can't checkout with an empty cart!" + Fore.RESET,"")
+
     elif(action == "orders"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
         ordershandler.history(current_user.name)
