@@ -103,6 +103,15 @@ def main():
 
                     if(action == "modify"):
                         print("hi")
+
+                    elif(action == "remove"):
+                        print("remove")
+
+                    elif(action == "close"):
+                        break
+
+                    else: print(Fore.RED,"Invalid option entered. Please try again.", Fore.RESET,"")
+
             
         elif(action == "exit"):
             print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")
