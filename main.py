@@ -100,10 +100,15 @@ def main():
                     Fore.CYAN,"remove" + Fore.RESET,"to remove a user and their associated orders from the database.\n-" +
                     Fore.CYAN,"close" + Fore.RESET,"to close the admin dashboard and return to the main menu.\n")
                     action = input("What would you like to do? ")
+
+                    if(action == "modify"):
+                        print("hi")
             
         elif(action == "exit"):
             print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")
             sys.exit()
+
+        else: print(Fore.RED,"Invalid option entered. Please try again.", Fore.RESET,"")
 
 if __name__ == "__main__":
     main()
