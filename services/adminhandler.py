@@ -51,3 +51,9 @@ class AdminHandler:
     
     def remove_orders(self, user):
         self.__dao.delete_orders(user)
+
+    def view_history(self):
+        print("Order history of The Computer Store: \n")
+        result = self.__dao.get_all_order_history()
+        for order in result:
+            print("Order ID: " + str(order['_id']) + " | User: " + order['user'] + " | Specs: " + order['specs'] + " | Price: " + str(order['price']))

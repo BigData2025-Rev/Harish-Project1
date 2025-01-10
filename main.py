@@ -42,7 +42,7 @@ def main():
         username, password, admin = authentication.register()
         current_user = userent.User(username, password, int(admin))
 
-    print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
+    print("\n----------------------------------------\nWelcome to The Computer Store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
 
     while(True):
         print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
@@ -99,7 +99,7 @@ def main():
                 while(True):
                     print("\nAdmin options:\n-" + Fore.CYAN,"modify" + Fore.RESET, "to change the price of an item in the store's inventory.\n-" +
                     Fore.CYAN,"remove" + Fore.RESET,"to remove a user and their associated orders from the database.\n-" +
-                    Fore.CYAN,"history" + Fore.RESET,"to view the store's entire order history.\n" +
+                    Fore.CYAN,"history" + Fore.RESET,"to view the store's entire order history.\n-" +
                     Fore.CYAN,"close" + Fore.RESET,"to close the admin dashboard and return to the main menu.\n")
                     action = input("What would you like to do? ")
 
@@ -109,6 +109,9 @@ def main():
                     elif(action == "remove"):
                         deleted_user = adminhandler.remove()
                         adminhandler.remove_orders(deleted_user['name'])
+
+                    elif(action == "history"):
+                        adminhandler.view_history()
 
                     elif(action == "close"):
                         break
