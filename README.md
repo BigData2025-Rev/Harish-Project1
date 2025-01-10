@@ -30,3 +30,5 @@ Download the project and run ```main.py``` to start the program.
 ## Credits
 
 The entity relationship diagram was created using [SmartDraw.](https://www.smartdraw.com/entity-relationship-diagram/)
+
+Icons used in the presentation slides were obtained from [Flaticon.](https://www.flaticon.com/free-icons/)
