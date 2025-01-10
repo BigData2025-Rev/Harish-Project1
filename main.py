@@ -59,10 +59,13 @@ def main():
 
         elif(action == "delete"):
             print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
-            for part in cart:
-                print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-            cart = deleterserv.delete(cart)
-            total_price -= part['price']
+            if(len(cart) == 0):
+                print(Fore.RED,"Cart is already empty!", Fore.RESET,"")
+            else:
+                for part in cart:
+                    print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+                cart = deleterserv.delete(cart)
+                total_price -= part['price']
 
         elif(action == "cart"):
             print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
@@ -87,7 +90,10 @@ def main():
             ordershandler.history(current_user.name)
 
         elif(action == "admin"):
-            print("admin")
+            if(current_user.admin == 0):
+                print(Fore.RED,"You do not have administrator privileges." + Fore.RESET,"")
+            elif(current_user.admin == 1):
+                print("\n----------------------------------------\nWelcome to admin dashboard, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
             
         elif(action == "exit"):
             print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")

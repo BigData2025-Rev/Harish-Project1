@@ -1,9 +1,6 @@
 from colorama import Fore
 
 def delete(cart):
-    if(len(cart) == 0):
-        print(Fore.RED,"Cart is already empty!", Fore.RESET,"")
-        return cart
     model = input("\nWhich part would you like to remove? ")
     flag = True
     while(flag):
