@@ -4,7 +4,7 @@ import repository.mongo as mongo
 db = mongo.connect()
 
 def login(username, password):
-    return db.users.find_one({"$and":[{"name": username}, {"password":password}]})
+    return db.users.find_one({"$and":[{"name": username}, {"password": password}]})
 
 def register(username, password, admin):
     db.users.insert_one({"name": username, "admin": admin, "password": password})
@@ -25,3 +25,6 @@ def add_order(cart, name, price):
         specs.append(part['model'])
     print(', '.join(specs))
     db.orders.insert_one({"user": name, "specs": ', '.join(specs), "price": price})
+
+def change_price(model, new_price):
+    db.parts.update_one({"model": model}, {"$set":{"price": new_price}})

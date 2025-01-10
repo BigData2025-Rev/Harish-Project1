@@ -18,6 +18,7 @@ def main():
     partshandler = partsserv.PartsHandler()
     ordershandler = ordersserv.OrdersHandler()
     checkouthandler = checkoutserv.CheckoutHandler()
+    adminhandler = adminsserv.AdminHandler()
     cart = []
     total_price = 0
 
@@ -102,7 +103,7 @@ def main():
                     action = input("What would you like to do? ")
 
                     if(action == "modify"):
-                        print("hi")
+                        adminhandler.modify()
 
                     elif(action == "remove"):
                         print("remove")
