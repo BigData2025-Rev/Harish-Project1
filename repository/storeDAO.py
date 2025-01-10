@@ -7,7 +7,7 @@ def login(username, password):
     return db.users.find_one({"$and":[{"name": username}, {"password":password}]})
 
 def register(username, password, admin):
-    db.users.insert_one({"user": username, "admin": admin, "password": password})
+    db.users.insert_one({"name": username, "admin": admin, "password": password})
     print(Fore.GREEN,"Registration successful!" + Fore.RESET,"")
 
 def get_parts(type):
