@@ -36,7 +36,7 @@ if(action == "login"):
     print(Fore.GREEN,"Credentials authenticated. Login successful!" + Fore.RESET,"")
 elif(action == "register"):
     username, password, admin = authentication.register()
-    current_user = userent.User(username, password, admin)
+    current_user = userent.User(username, password, int(admin))
 
 print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
 

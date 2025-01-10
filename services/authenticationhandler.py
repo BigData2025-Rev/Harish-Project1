@@ -28,5 +28,5 @@ class Authentication:
         while(admin != '1' and admin != '0'):
             print(Fore.RED,"Invalid choice entered. Please try again." + Fore.RESET,"")
             admin = input("Admin: ")
-        self.__dao.register(username, password, admin)
+        self.__dao.register(username, password, int(admin))
         return username, password, admin
