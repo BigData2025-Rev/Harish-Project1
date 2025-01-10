@@ -8,6 +8,7 @@ import services.partshandler as partsserv
 import services.deletehandler as deleterserv
 import services.ordershandler as ordersserv
 import services.checkouthandler as checkoutserv
+import services.adminhandler as adminsserv
 
 def main():
 
@@ -97,8 +98,6 @@ def main():
                 while(True):
                     print("\nAdmin options:\n-" + Fore.CYAN,"modify" + Fore.RESET, "to change the price of an item in the store's inventory.\n-" +
                     Fore.CYAN,"remove" + Fore.RESET,"to remove a user and their associated orders from the database.\n-" +
-                    Fore.CYAN,"grant" + Fore.RESET,"to grant admin privileges to a specific user.\n-" +
-                    Fore.CYAN,"revoke" + Fore.RESET,"to revoke admin privileges from a specific user.\n-" +
                     Fore.CYAN,"close" + Fore.RESET,"to close the admin dashboard and return to the main menu.\n")
                     action = input("What would you like to do? ")
             
