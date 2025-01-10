@@ -21,6 +21,7 @@ Download the project and run ```main.py``` to start the program.
 - Python 3
 	- colorama
     - pymongo
+    - logging
 - MongoDB
 - git (+ GitHub)
 
