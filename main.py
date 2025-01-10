@@ -1,9 +1,7 @@
 import sys
 import logging
 from colorama import Fore
-import entities.order as orderent
 import entities.user as userent
-import entities.part as partent
 import services.authenticationhandler as authenticationserv
 import services.partshandler as partsserv
 import services.deletehandler as deleterserv
@@ -15,7 +13,7 @@ def main():
 
     print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
-    log = logging.getLogger(__name__)
+    logging.basicConfig(filename='logfile.log', encoding='utf-8', level=logging.DEBUG)
     authentication = authenticationserv.Authentication()
     partshandler = partsserv.PartsHandler()
     ordershandler = ordersserv.OrdersHandler()
@@ -28,7 +26,6 @@ def main():
         action = input("What would you like to do? ")
         if(action != "login" and action != "register" and action != "exit"):
             print(Fore.RED, "Invalid option entered. Please try again.", Fore.RESET)
-            log.info("Failed to login or register")
             continue
         elif(action == "exit"): 
             print(Fore.GREEN,"Goodbye!" + Fore.RESET,"")
