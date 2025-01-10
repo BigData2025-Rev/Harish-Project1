@@ -9,84 +9,89 @@ import services.deletehandler as deleterserv
 import services.ordershandler as ordersserv
 import services.checkouthandler as checkoutserv
 
-print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
+def main():
 
-authentication = authenticationserv.Authentication()
-partshandler = partsserv.PartsHandler()
-ordershandler = ordersserv.OrdersHandler()
-checkouthandler = checkoutserv.CheckoutHandler()
-cart = []
-total_price = 0
+    print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
-while(True):
-    action = input("What would you like to do? ")
-    if(action != "login" and action != "register" and action != "exit"):
-        print(Fore.RED, "Invalid option entered. Please try again.", Fore.RESET)
-        continue
-    elif(action == "exit"): 
-        print(Fore.GREEN,"Goodbye!" + Fore.RESET,"")
-        sys.exit()
-    else: break
+    authentication = authenticationserv.Authentication()
+    partshandler = partsserv.PartsHandler()
+    ordershandler = ordersserv.OrdersHandler()
+    checkouthandler = checkoutserv.CheckoutHandler()
+    cart = []
+    total_price = 0
 
-if(action == "login"):
-    current_user = authentication.login()
-    while(current_user == None): 
-        print(Fore.RED, "Invalid credentials. Please try again.", Fore.RESET)
+    while(True):
+        action = input("What would you like to do? ")
+        if(action != "login" and action != "register" and action != "exit"):
+            print(Fore.RED, "Invalid option entered. Please try again.", Fore.RESET)
+            continue
+        elif(action == "exit"): 
+            print(Fore.GREEN,"Goodbye!" + Fore.RESET,"")
+            sys.exit()
+        else: break
+
+    if(action == "login"):
         current_user = authentication.login()
-    print(Fore.GREEN,"Credentials authenticated. Login successful!" + Fore.RESET,"")
-elif(action == "register"):
-    username, password, admin = authentication.register()
-    current_user = userent.User(username, password, int(admin))
+        while(current_user == None): 
+            print(Fore.RED, "Invalid credentials. Please try again.", Fore.RESET)
+            current_user = authentication.login()
+        print(Fore.GREEN,"Credentials authenticated. Login successful!" + Fore.RESET,"")
+    elif(action == "register"):
+        username, password, admin = authentication.register()
+        current_user = userent.User(username, password, int(admin))
 
-print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
+    print("\n----------------------------------------\nWelcome to the computer store, " + Fore.YELLOW,current_user.name + Fore.RESET,"!\n----------------------------------------\n", sep="")
 
-while(True):
-    print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
-      Fore.CYAN,"delete" + Fore.RESET,"to remove an item from your cart.\n-" +
-      Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
-      Fore.CYAN,"checkout" + Fore.RESET,"to finalize and checkout your order.\n-" +
-      Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
-      Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
-      Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
-    action = input("What would you like to do? ")
+    while(True):
+        print("\nHere are your options:\n-" + Fore.CYAN,"add" + Fore.RESET, "to add a part to your cart.\n-" +
+        Fore.CYAN,"delete" + Fore.RESET,"to remove an item from your cart.\n-" +
+        Fore.CYAN,"cart" + Fore.RESET,"to view your current cart.\n-" +
+        Fore.CYAN,"checkout" + Fore.RESET,"to finalize and checkout your order.\n-" +
+        Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
+        Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
+        Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
+        action = input("What would you like to do? ")
 
-    if(action == "add"): 
-        part = partshandler.add()
-        cart.append(part)
-        total_price += part['price']
+        if(action == "add"): 
+            part = partshandler.add()
+            cart.append(part)
+            total_price += part['price']
 
-    elif(action == "delete"):
-        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
-        for part in cart:
-            print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-        cart = deleterserv.delete(cart)
-        total_price -= part['price']
-
-    elif(action == "cart"):
-        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
-        if(len(cart) == 0):
-            print(Fore.RED,"Cart is currently empty." + Fore.RESET,"")
-        else:
+        elif(action == "delete"):
+            print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
             for part in cart:
-                print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
-            print("\nYour total price is: " + str(total_price))
+                print("Brand: " + part['brand'] + " | " + "Model:" + Fore.CYAN,part['model'] + Fore.RESET,"| " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+            cart = deleterserv.delete(cart)
+            total_price -= part['price']
 
-    elif(action == "checkout"):
-        if(len(cart) == 0):
-            print(Fore.RED,"You can't checkout with an empty cart!" + Fore.RESET,"")
-        else:
-            checkouthandler.checkout(cart, current_user.name, total_price)
-            cart = []
-            total_price = 0
+        elif(action == "cart"):
+            print(Fore.YELLOW,current_user.name + Fore.RESET,"'s cart:\n", sep="")
+            if(len(cart) == 0):
+                print(Fore.RED,"Cart is currently empty." + Fore.RESET,"")
+            else:
+                for part in cart:
+                    print("Brand: " + part['brand'] + " | " + "Model: " + part['model'] + " | " + "Type: " + part['type'] + " | " + "Price: " + str(part['price']))
+                print("\nYour total price is: " + str(total_price))
+
+        elif(action == "checkout"):
+            if(len(cart) == 0):
+                print(Fore.RED,"You can't checkout with an empty cart!" + Fore.RESET,"")
+            else:
+                checkouthandler.checkout(cart, current_user.name, total_price)
+                cart = []
+                total_price = 0
 
 
-    elif(action == "orders"):
-        print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
-        ordershandler.history(current_user.name)
+        elif(action == "orders"):
+            print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
+            ordershandler.history(current_user.name)
 
-    elif(action == "admin"):
-        print("admin")
-        
-    elif(action == "exit"):
-        print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")
-        sys.exit()
+        elif(action == "admin"):
+            print("admin")
+            
+        elif(action == "exit"):
+            print(Fore.GREEN,"Goodbye, thanks for shopping with us." + Fore.RESET,"")
+            sys.exit()
+
+if __name__ == "__main__":
+    main()
