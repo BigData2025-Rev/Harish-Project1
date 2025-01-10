@@ -49,7 +49,7 @@ def main():
         Fore.CYAN,"checkout" + Fore.RESET,"to finalize and checkout your order.\n-" +
         Fore.CYAN,"orders" + Fore.RESET,"to view your order history.\n-" +
         Fore.CYAN,"admin" + Fore.RESET,"to access the admin dashboard.\n-" +
-        Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.")
+        Fore.CYAN,"exit" + Fore.RESET,"to cancel and exit the store.\n")
         action = input("What would you like to do? ")
 
         if(action == "add"): 
