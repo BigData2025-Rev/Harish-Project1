@@ -18,3 +18,9 @@ def get_model(model):
 
 def get_order_history(name):
     return db.orders.find({"user" : name})
+
+def add_order(cart, name, price):
+    specs = ""
+    for part in cart:
+        specs += part['model'] + ", "
+    print(specs.rstrip(","))

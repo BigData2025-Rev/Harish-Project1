@@ -7,12 +7,14 @@ import services.authenticationhandler as authenticationserv
 import services.partshandler as partsserv
 import services.deletehandler as deleterserv
 import services.ordershandler as ordersserv
+import services.checkouthandler as checkoutserv
 
 print("\n\nWelcome to the Computer Store!\nFirst, you'll need to" + Fore.CYAN," login " + Fore.RESET,"or" + Fore.CYAN," register" + Fore.RESET,".", sep="")
 
 authentication = authenticationserv.Authentication()
 partshandler = partsserv.PartsHandler()
 ordershandler = ordersserv.OrdersHandler()
+checkouthandler = checkoutserv.CheckoutHandler()
 cart = []
 total_price = 0
 
@@ -70,6 +72,11 @@ while(True):
     elif(action == "checkout"):
         if(len(cart) == 0):
             print(Fore.RED,"You can't checkout with an empty cart!" + Fore.RESET,"")
+        else:
+            checkouthandler.checkout(cart, current_user.name, total_price)
+            cart = []
+            total_price = 0
+
 
     elif(action == "orders"):
         print(Fore.YELLOW,current_user.name + Fore.RESET,"'s order history:\n", sep="")
