@@ -30,7 +30,7 @@ def change_price(model, new_price):
     db.parts.update_one({"model": model}, {"$set":{"price": new_price}})
 
 def get_users():
-    db.users.find()
+    return db.users.find()
 
 def delete_user(user):
     return db.users.find_one_and_delete({"user": user})
