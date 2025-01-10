@@ -106,7 +106,8 @@ def main():
                         adminhandler.modify()
 
                     elif(action == "remove"):
-                        adminhandler.remove()
+                        deleted_user = adminhandler.remove()
+                        
 
                     elif(action == "close"):
                         break

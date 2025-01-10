@@ -40,4 +40,11 @@ class AdminHandler:
         result = self.__dao.get_users()
         for user in result:
             print("User: " + Fore.MAGENTA,user['name'] + Fore.RESET,"")
-        username = input("Which user would you like to delete? ")
+        username = input("\nWhich user would you like to remove? ")
+        result = self.__dao.delete_user(username)
+        while(result == None):
+            print(Fore.RED,"Invalid user specified. Please try again." + Fore.RESET,"")
+            username = input("\nWhich user would you like to remove? ")
+            result = self.__dao.delete_user(username)
+        print(Fore.GREEN,"User and their order history have been successfully removed!" + Fore.RESET,"")
+        return result

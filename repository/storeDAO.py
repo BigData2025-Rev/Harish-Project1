@@ -32,5 +32,5 @@ def change_price(model, new_price):
 def get_users():
     return db.users.find()
 
-def delete_user(user):
-    return db.users.find_one_and_delete({"user": user})
+def delete_user(name):
+    return db.users.find_one_and_delete({"name": name})
