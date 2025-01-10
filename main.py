@@ -107,7 +107,8 @@ def main():
 
                     elif(action == "remove"):
                         deleted_user = adminhandler.remove()
-                        
+                        #adminhandler.remove_orders(deleted_user['name'])
+                        print(deleted_user['name'])
 
                     elif(action == "close"):
                         break

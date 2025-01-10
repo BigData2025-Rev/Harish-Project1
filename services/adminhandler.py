@@ -48,3 +48,6 @@ class AdminHandler:
             result = self.__dao.delete_user(username)
         print(Fore.GREEN,"User and their order history have been successfully removed!" + Fore.RESET,"")
         return result
+    
+    def remove_orders(self, user):
+        self.__dao.delete_orders(user)

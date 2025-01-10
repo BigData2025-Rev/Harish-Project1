@@ -34,3 +34,6 @@ def get_users():
 
 def delete_user(name):
     return db.users.find_one_and_delete({"name": name})
+
+def delete_orders(user):
+    db.orders.delete_many({"user": user})
